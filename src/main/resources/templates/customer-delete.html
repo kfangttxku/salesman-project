@@ -5,14 +5,14 @@
 
 <div class="container" layout:fragment="content">
     <h1>Delete Customer</h1>
-    <form th:action="@{/customer/delete/{id}(id=${customer.customerId})}"
+    <form th:action="@{/customer/delete/{customerId}(customerId=${customer.customerId})}"
           th:object="${customer}"
           method="POST">
 
-        <input type="hidden" name="customerId" value="-1"/>
-        <input type="hidden" name="customerName" value="-1"/>
-        <input type="hidden" name="customerAddress" value="-1"/>
-        <input type="hidden" name="customerPhone" value="-1"/>
+<!--        <input type="hidden" name="customerId" value="-1"/>-->
+<!--        <input type="hidden" name="customerName" value="-1"/>-->
+<!--        <input type="hidden" name="customerAddress" value="-1"/>-->
+<!--        <input type="hidden" name="customerPhone" value="-1"/>-->
 
 
         <div class="form-group">

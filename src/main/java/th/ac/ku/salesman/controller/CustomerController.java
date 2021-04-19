@@ -29,18 +29,18 @@ public class CustomerController {
         return "redirect:customer";
     }
 
-    @GetMapping("/delete/{id}")
-    public String getDeleteCustomerPage(@PathVariable int id, Model model) {
-        Customer customer = customerService.getOneCustomer(id);
+    @GetMapping("/delete/{customerId}")
+    public String getDeleteCustomerPage(@PathVariable int customerId, Model model) {
+        Customer customer = customerService.getOneCustomer(customerId);
         model.addAttribute("customer", customer);
         return "customer-delete";
     }
 
-    @PostMapping("/delete/{id}")
-    public String deleteCustomer(@PathVariable int id, @ModelAttribute Customer customer, Model model) {
+    @PostMapping("/delete/{customerId}")
+    public String deleteCustomer(@PathVariable int customerId, @ModelAttribute Customer customer, Model model) {
         customerService.deleteCustomer(customer);
-        model.addAttribute("customers",customerService.getCustomer());
-        return "redirect:/customer";
+        model.addAttribute("allCustomers",customerService.getCustomer());
+        return "customer";
     }
 
 
