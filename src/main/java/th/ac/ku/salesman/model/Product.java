@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
-    private int productId;
-    private String productName, productUnit, productPrice;
+    private int productId, productStock;
+    private String productName,productPrice;
 
-    public Product(int productId, String productName, String productUnit, String productPrice) {
+    public Product(int productId, String productName, int productStock, String productPrice) {
         this.productId = productId;
         this.productName = productName;
-        this.productUnit = productUnit;
+        this.productStock = productStock;
         this.productPrice = productPrice;
     }
 
@@ -30,12 +30,12 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getProductUnit() {
-        return productUnit;
+    public int getProductStock() {
+        return productStock;
     }
 
-    public void setProductUnit(String productUnit) {
-        this.productUnit = productUnit;
+    public void setProductStock(int productStock) {
+        this.productStock = productStock;
     }
 
     public String getProductPrice() {
@@ -50,8 +50,8 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "productId=" + productId +
+                ", productStock=" + productStock +
                 ", productName='" + productName + '\'' +
-                ", productUnit='" + productUnit + '\'' +
                 ", productPrice='" + productPrice + '\'' +
                 '}';
     }

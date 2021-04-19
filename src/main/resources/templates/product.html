@@ -19,13 +19,13 @@
         </div>
 
         <div class="form-group">
-            <label for="inputUnit">Unit</label>
-            <input type="input" class = "form-control" name="productUnit" id="inputUnit">
+            <label for="inputPrice">Price</label>
+            <input type="input" class = "form-control" name="productPrice" id="inputPrice">
         </div>
 
         <div class="form-group">
-            <label for="inputPrice">Price</label>
-            <input type="input" class = "form-control" name="productPrice" id="inputPrice">
+            <label for="inputStock">Stock</label>
+            <input type="input" class = "form-control" name="productStock" id="inputStock">
         </div>
 
         <div class="form-group">
@@ -42,8 +42,8 @@
         <tr>
             <th style="text-align: center;">Id</th>
             <th style="text-align: center;">Name</th>
-            <th style="text-align: center;">Unit</th>
             <th style="text-align: center;">Price</th>
+            <th style="text-align: center;">Stock</th>
             <th style="text-align: center;">Action</th>
         </tr>
         </thead>
@@ -51,8 +51,8 @@
         <tr th:each="product : ${allProducts}">
             <td style="text-align: center;" th:text="${product.productId}"></td>
             <td style="text-align: center;" th:text="${product.productName}"></td>
-            <td style="text-align: center;" th:text="${product.productUnit}"></td>
             <td style="text-align: center;" th:text="${product.productPrice}"></td>
+            <td style="text-align: center;" th:text="${product.productStock}"></td>
             <td style="text-align: center;"><a class="btn btn-primary" th:href="@{/product/delete/{productId}(productId=${product.productId})}">Delete</a></td>
         </tr>
         </tbody>
