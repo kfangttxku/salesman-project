@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.sql.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Order {
+public class Orders {
     private int orderId, customerId, productId, productAmount;
     private String orderStatus;
     private java.sql.Date orderDate;
 
-    public Order(int orderId, int customerId, int productId, int productAmount, String orderStatus, java.sql.Date orderDate) {
+    public Orders(int orderId, int customerId, int productId, int productAmount, String orderStatus, java.sql.Date orderDate) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.productId = productId;
@@ -69,7 +69,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orders{" +
                 "orderId=" + orderId +
                 ", customerId=" + customerId +
                 ", productId=" + productId +

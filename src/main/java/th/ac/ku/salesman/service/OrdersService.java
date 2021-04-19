@@ -3,7 +3,7 @@ package th.ac.ku.salesman.service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import th.ac.ku.salesman.model.Order;
+import th.ac.ku.salesman.model.Orders;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,26 +16,26 @@ public class OrdersService {
         this.restTemplate = restTemplate;
     }
 
-    public List<Order> getOrders(){
+    public List<Orders> getOrders(){
         String url = "http://localhost:8093/api/orders";
-        ResponseEntity<Order[]> response = restTemplate.getForEntity(url, Order[].class);
-        Order[] orders = response.getBody();
+        ResponseEntity<Orders[]> response = restTemplate.getForEntity(url, Orders[].class);
+        Orders[] orders = response.getBody();
         return Arrays.asList(orders);
     }
 
-    public Order getOneOrder(int id){
-        String url = "http://localhost:8093/api/orders/" + id;
-        ResponseEntity<Order> response = restTemplate.getForEntity(url, Order.class);
+    public Orders getOneOrder(int orderId){
+        String url = "http://localhost:8093/api/orders/" + orderId;
+        ResponseEntity<Orders> response = restTemplate.getForEntity(url, Orders.class);
         return response.getBody();
     }
 
-    public void createOrder(Order order){
+    public void createOrder(Orders orders){
         String url = "http://localhost:8093/api/orders";
-        restTemplate.postForObject(url, order, Order.class);
+        restTemplate.postForObject(url, orders, Orders.class);
     }
 
-    public void deleteOrder(Order order){
-        String url = "http://localhost:8093/api/orders/" + order.getProductId();
-        restTemplate.delete(url, order);
+    public void deleteOrder(Orders orders){
+        String url = "http://localhost:8093/api/orders/" + orders.getOrderId();
+        restTemplate.delete(url, orders);
     }
 }

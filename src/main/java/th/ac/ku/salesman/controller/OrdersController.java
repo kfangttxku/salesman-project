@@ -3,7 +3,7 @@ package th.ac.ku.salesman.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import th.ac.ku.salesman.model.Order;
+import th.ac.ku.salesman.model.Orders;
 import th.ac.ku.salesman.service.OrdersService;
 
 @Controller
@@ -22,23 +22,23 @@ public class OrdersController {
     }
 
     @PostMapping
-    public String registerOrders(@ModelAttribute Order order, Model model) {
-        ordersService.createOrder(order);
+    public String registerOrders(@ModelAttribute Orders orders, Model model) {
+        ordersService.createOrder(orders);
         model.addAttribute("allOrders", ordersService.getOrders());
         return "redirect:orders";
     }
 
-    @GetMapping("/delete/{id}")
-    public String getDeleteProductPage(@PathVariable int id, Model model) {
-        Order order = ordersService.getOneOrder(id);
-        model.addAttribute("orders", order);
+    @GetMapping("/delete/{orderId}")
+    public String getDeleteOrderPage(@PathVariable int orderId, Model model) {
+        Orders orders = ordersService.getOneOrder(orderId);
+        model.addAttribute("orders", orders);
         return "orders-delete";
     }
 
-    @PostMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable int id, @ModelAttribute Order order, Model model) {
-        ordersService.deleteOrder(order);
-        model.addAttribute("orders",ordersService.getOrders());
-        return "redirect:/orders";
+    @PostMapping("/delete/{orderId}")
+    public String deleteProduct(@PathVariable int orderId, @ModelAttribute Orders orders, Model model) {
+        ordersService.deleteOrder(orders);
+        model.addAttribute("allOrders",ordersService.getOrders());
+        return "orders";
     }
 }

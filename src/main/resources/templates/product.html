@@ -53,7 +53,7 @@
             <td style="text-align: center;" th:text="${product.productName}"></td>
             <td style="text-align: center;" th:text="${product.productPrice}"></td>
             <td style="text-align: center;" th:text="${product.productStock}"></td>
-            <td style="text-align: center;"><a class="btn btn-primary" th:href="@{/product/delete/{productId}(productId=${product.productId})}">Delete</a></td>
+            <td style="text-align: center;"><a class="btn btn-danger" th:href="@{/product/delete/{productId}(productId=${product.productId})}">Delete</a></td>
         </tr>
         </tbody>
     </table>

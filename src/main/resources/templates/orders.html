@@ -58,16 +58,18 @@
             <th style="text-align: center;">Product Amount</th>
             <th style="text-align: center;">Order Status</th>
             <th style="text-align: center;">Date</th>
+            <th style="text-align: center;">Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="order : ${allOrders}">
-            <td style="text-align: center;" th:text="${order.orderId}"></td>
-            <td style="text-align: center;" th:text="${order.customerId}"></td>
-            <td style="text-align: center;" th:text="${order.productId}"></td>
-            <td style="text-align: center;" th:text="${order.productAmount}"></td>
-            <td style="text-align: center;" th:text="${order.orderStatus}"></td>
-            <td style="text-align: center;" th:text="${#dates.format(order.orderDate, 'dd/MM/yyyy')}"></td>
+        <tr th:each="orders : ${allOrders}">
+            <td style="text-align: center;" th:text="${orders.orderId}"></td>
+            <td style="text-align: center;" th:text="${orders.customerId}"></td>
+            <td style="text-align: center;" th:text="${orders.productId}"></td>
+            <td style="text-align: center;" th:text="${orders.productAmount}"></td>
+            <td style="text-align: center;" th:text="${orders.orderStatus}"></td>
+            <td style="text-align: center;" th:text="${#dates.format(orders.orderDate, 'dd/MM/yyyy')}"></td>
+            <td style="text-align: center;"><a class="btn btn-danger" th:href="@{/orders/delete/{id}(id=${orders.orderId})}">Delete</a></td>
         </tr>
         </tbody>
     </table>
