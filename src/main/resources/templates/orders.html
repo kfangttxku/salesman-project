@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}"
+      xmlns:th="https://www.thymeleaf.org">
+
+<div class="container" layout:fragment="content">
+    <h1>Create Order</h1>
+    <form th:action="@{/orders}" method="POST">
+
+        <input type="hidden" name="orderId" value="-1"/>
+        <!--        <div class="form-group">-->
+        <!--            <label for="inputId">Id</label>-->
+        <!--            <input type="input" class = "form-control" name="orderId" id="inputId">-->
+        <!--        </div>-->
+
+        <div class="form-group">
+            <label for="inputSalesmanID">Salesman ID</label>
+            <input type="input" class = "form-control" name="salesmanId" id="inputSalesmanID">
+        </div>
+
+        <div class="form-group">
+            <label for="inputCustomerID">Customer ID</label>
+            <input type="input" class = "form-control" name="customerId" id="inputCustomerID">
+        </div>
+
+        <div class="form-group">
+            <label for="inputOrderStatus">Order Status</label>
+            <input type="input" class = "form-control" name="orderStatus" id="inputOrderStatus">
+        </div>
+
+        <div class="form-group">
+            <label for="inputOrderDate">Date</label>
+            <input type="date" class = "form-control" name="orderDate" id="inputOrderDate">
+        </div>
+
+        <div class="form-group">
+            <label for="inputProductID">Product ID</label>
+            <input type="input" class = "form-control" name="productId" id="inputProductID">
+        </div>
+
+        <div class="form-group">
+            <label for="inputProductUnit">Product Unit</label>
+            <input type="input" class = "form-control" name="productUnit" id="inputProductUnit">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </form>
+
+    <hr>
+
+    <h1>All Orders</h1>
+
+    <table border="1px" class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th style="text-align: center;">Id</th>
+            <th style="text-align: center;">Salesman ID</th>
+            <th style="text-align: center;">Customer ID</th>
+            <th style="text-align: center;">Product ID</th>
+            <th style="text-align: center;">Product Unit</th>
+            <th style="text-align: center;">Order Status</th>
+            <th style="text-align: center;">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${allOrders}">
+            <td style="text-align: center;" th:text="${order.orderId}"></td>
+            <td style="text-align: center;" th:text="${order.salesmanId}"></td>
+            <td style="text-align: center;" th:text="${order.customerId}"></td>
+            <td style="text-align: center;" th:text="${order.productId}"></td>
+            <td style="text-align: center;" th:text="${order.productUnit}"></td>
+            <td style="text-align: center;" th:text="${order.orderStatus}"></td>
+            <td style="text-align: center;" th:text="${#dates.format(order.orderDate, 'dd/MM/yyyy')}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,17 +1,21 @@
 package th.ac.ku.salesman.model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.sql.Date;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Order {
-    private int orderId, customerId, salesmanId, productId;
+    private int orderId, customerId, salesmanId, productId, productUnit;
     private String orderStatus;
-    private Date orderDate;
+    private java.sql.Date orderDate;
 
-    public Order(int orderId, int customerId, int salesmanId, int productId, String orderStatus, Date orderDate) {
+    public Order(int orderId, int customerId, int salesmanId, int productId, int productUnit, String orderStatus, java.sql.Date orderDate) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.salesmanId = salesmanId;
         this.productId = productId;
+        this.productUnit = productUnit;
         this.orderStatus = orderStatus;
         this.orderDate = orderDate;
     }
@@ -48,6 +52,14 @@ public class Order {
         this.productId = productId;
     }
 
+    public int getProductUnit() {
+        return productUnit;
+    }
+
+    public void setProductUnit(int productUnit) {
+        this.productUnit = productUnit;
+    }
+
     public String getOrderStatus() {
         return orderStatus;
     }
@@ -60,7 +72,20 @@ public class Order {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(java.sql.Date orderDate) {
         this.orderDate = orderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", customerId=" + customerId +
+                ", salesmanId=" + salesmanId +
+                ", productId=" + productId +
+                ", productUnit=" + productUnit +
+                ", orderStatus='" + orderStatus + '\'' +
+                ", orderDate=" + orderDate +
+                '}';
     }
 }
