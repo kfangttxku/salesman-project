@@ -1,5 +1,8 @@
 package th.ac.ku.salesman.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
     private int productId;
     private String productName, productUnit, productPrice;
@@ -41,5 +44,15 @@ public class Product {
 
     public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", productUnit='" + productUnit + '\'' +
+                ", productPrice='" + productPrice + '\'' +
+                '}';
     }
 }

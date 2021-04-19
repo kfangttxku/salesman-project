@@ -3,7 +3,6 @@ package th.ac.ku.salesman.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import th.ac.ku.salesman.model.Customer;
 import th.ac.ku.salesman.model.Product;
 import th.ac.ku.salesman.service.ProductService;
 

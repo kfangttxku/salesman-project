@@ -3,9 +3,7 @@ package th.ac.ku.salesman.service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import th.ac.ku.salesman.model.Customer;
 import th.ac.ku.salesman.model.Product;
-
 import java.util.Arrays;
 import java.util.List;
 
