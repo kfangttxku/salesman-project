@@ -29,19 +29,18 @@ public class ProductController {
         return "redirect:product";
     }
 
-    @GetMapping("/delete/{id}")
-    public String getDeleteProductPage(@PathVariable int id, Model model) {
-        Product product = productService.getOneProduct(id);
+    @GetMapping("/delete/{productId}")
+    public String getDeleteProductPage(@PathVariable int productId, Model model) {
+        Product product = productService.getOneProduct(productId);
         model.addAttribute("product", product);
         return "product-delete";
     }
 
-    @PostMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable int id, @ModelAttribute Product product, Model model) {
+    @PostMapping("/delete/{productId}")
+    public String deleteProduct(@PathVariable int productId, @ModelAttribute Product product, Model model) {
         productService.deleteProduct(product);
-        model.addAttribute("products",productService.getProduct());
-        return "redirect:/product";
+        model.addAttribute("allProducts",productService.getProduct());
+        return "product";
     }
-
 
 }
