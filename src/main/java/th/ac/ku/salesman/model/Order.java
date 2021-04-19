@@ -6,16 +6,15 @@ import java.sql.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Order {
-    private int orderId, customerId, salesmanId, productId, productUnit;
+    private int orderId, customerId, productId, productAmount;
     private String orderStatus;
     private java.sql.Date orderDate;
 
-    public Order(int orderId, int customerId, int salesmanId, int productId, int productUnit, String orderStatus, java.sql.Date orderDate) {
+    public Order(int orderId, int customerId, int productId, int productAmount, String orderStatus, java.sql.Date orderDate) {
         this.orderId = orderId;
         this.customerId = customerId;
-        this.salesmanId = salesmanId;
         this.productId = productId;
-        this.productUnit = productUnit;
+        this.productAmount = productAmount;
         this.orderStatus = orderStatus;
         this.orderDate = orderDate;
     }
@@ -36,14 +35,6 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public int getSalesmanId() {
-        return salesmanId;
-    }
-
-    public void setSalesmanId(int salesmanId) {
-        this.salesmanId = salesmanId;
-    }
-
     public int getProductId() {
         return productId;
     }
@@ -52,12 +43,12 @@ public class Order {
         this.productId = productId;
     }
 
-    public int getProductUnit() {
-        return productUnit;
+    public int getProductAmount() {
+        return productAmount;
     }
 
-    public void setProductUnit(int productUnit) {
-        this.productUnit = productUnit;
+    public void setProductAmount(int productUnit) {
+        this.productAmount = productUnit;
     }
 
     public String getOrderStatus() {
@@ -81,9 +72,8 @@ public class Order {
         return "Order{" +
                 "orderId=" + orderId +
                 ", customerId=" + customerId +
-                ", salesmanId=" + salesmanId +
                 ", productId=" + productId +
-                ", productUnit=" + productUnit +
+                ", productUnit=" + productAmount +
                 ", orderStatus='" + orderStatus + '\'' +
                 ", orderDate=" + orderDate +
                 '}';

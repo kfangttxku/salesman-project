@@ -14,13 +14,18 @@
         <!--        </div>-->
 
         <div class="form-group">
-            <label for="inputSalesmanID">Salesman ID</label>
-            <input type="input" class = "form-control" name="salesmanId" id="inputSalesmanID">
+            <label for="inputCustomerID">Customer ID</label>
+            <input type="input" class = "form-control" name="customerId" id="inputCustomerID">
         </div>
 
         <div class="form-group">
-            <label for="inputCustomerID">Customer ID</label>
-            <input type="input" class = "form-control" name="customerId" id="inputCustomerID">
+            <label for="inputProductID">Product ID</label>
+            <input type="input" class = "form-control" name="productId" id="inputProductID">
+        </div>
+
+        <div class="form-group">
+            <label for="inputProductAmount">Product Amount</label>
+            <input type="input" class = "form-control" name="productAmount" id="inputProductAmount">
         </div>
 
         <div class="form-group">
@@ -33,15 +38,7 @@
             <input type="date" class = "form-control" name="orderDate" id="inputOrderDate">
         </div>
 
-        <div class="form-group">
-            <label for="inputProductID">Product ID</label>
-            <input type="input" class = "form-control" name="productId" id="inputProductID">
-        </div>
 
-        <div class="form-group">
-            <label for="inputProductUnit">Product Unit</label>
-            <input type="input" class = "form-control" name="productUnit" id="inputProductUnit">
-        </div>
 
         <div class="form-group">
             <input type="submit" class="btn btn-primary">
@@ -56,10 +53,9 @@
         <thead class="thead-light">
         <tr>
             <th style="text-align: center;">Id</th>
-            <th style="text-align: center;">Salesman ID</th>
             <th style="text-align: center;">Customer ID</th>
             <th style="text-align: center;">Product ID</th>
-            <th style="text-align: center;">Product Unit</th>
+            <th style="text-align: center;">Product Amount</th>
             <th style="text-align: center;">Order Status</th>
             <th style="text-align: center;">Date</th>
         </tr>
@@ -67,10 +63,9 @@
         <tbody>
         <tr th:each="order : ${allOrders}">
             <td style="text-align: center;" th:text="${order.orderId}"></td>
-            <td style="text-align: center;" th:text="${order.salesmanId}"></td>
             <td style="text-align: center;" th:text="${order.customerId}"></td>
             <td style="text-align: center;" th:text="${order.productId}"></td>
-            <td style="text-align: center;" th:text="${order.productUnit}"></td>
+            <td style="text-align: center;" th:text="${order.productAmount}"></td>
             <td style="text-align: center;" th:text="${order.orderStatus}"></td>
             <td style="text-align: center;" th:text="${#dates.format(order.orderDate, 'dd/MM/yyyy')}"></td>
         </tr>
