@@ -32,6 +32,11 @@ public class ProductService {
         String url = "http://localhost:8092/api/product";
         restTemplate.postForObject(url, product, Product.class);
     }
+    public void editProduct(Product product) {
+        String url = "http://localhost:8092/api/product/" +
+                product.getProductId();
+        restTemplate.put(url, product);
+    }
 
     public void deleteProduct(Product product){
         String url = "http://localhost:8092/api/product/" + product.getProductId();

@@ -9,9 +9,9 @@
 
         <input type="hidden" name="productId" value="-1"/>
         <!--        <div class="form-group">-->
-<!--            <label for="inputId">Id</label>-->
-<!--            <input type="input" class = "form-control" name="productId" id="inputId">-->
-<!--        </div>-->
+        <!--            <label for="inputId">Id</label>-->
+        <!--            <input type="input" class = "form-control" name="productId" id="inputId">-->
+        <!--        </div>-->
 
         <div class="form-group">
             <label for="inputName">Name</label>
@@ -44,7 +44,9 @@
             <th style="text-align: center;">Name</th>
             <th style="text-align: center;">Price</th>
             <th style="text-align: center;">Stock</th>
-            <th style="text-align: center;">Action</th>
+            <!--            <th style="text-align: center;">Action</th>-->
+            <th style="text-align: center;">Edit</th>
+            <th style="text-align: center;">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -53,6 +55,10 @@
             <td style="text-align: center;" th:text="${product.productName}"></td>
             <td style="text-align: center;" th:text="${product.productPrice}"></td>
             <td style="text-align: center;" th:text="${product.productStock}"></td>
+            <!--            <td>-->
+            <!--                <a class="btn btn-primary" th:href="@{/product/edit/{id}(id=${product.product_id})}">Edit</a>-->
+            <!--            </td>-->
+            <td style="text-align: center;"><a class="btn btn-primary" th:href="@{/product/edit/{productId}(productId=${product.productId})}">Edit</a></td>
             <td style="text-align: center;"><a class="btn btn-danger" th:href="@{/product/delete/{productId}(productId=${product.productId})}">Delete</a></td>
         </tr>
         </tbody>
