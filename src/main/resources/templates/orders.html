@@ -58,7 +58,8 @@
             <th style="text-align: center;">Product Amount</th>
             <th style="text-align: center;">Order Status</th>
             <th style="text-align: center;">Date</th>
-            <th style="text-align: center;">Action</th>
+            <th style="text-align: center;">Edit</th>
+            <th style="text-align: center;">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -69,6 +70,7 @@
             <td style="text-align: center;" th:text="${orders.productAmount}"></td>
             <td style="text-align: center;" th:text="${orders.orderStatus}"></td>
             <td style="text-align: center;" th:text="${#dates.format(orders.orderDate, 'dd/MM/yyyy')}"></td>
+            <td style="text-align: center;"><a class="btn btn-primary" th:href="@{/orders/edit/{id}(id=${orders.orderId})}">Edit</a></td>
             <td style="text-align: center;"><a class="btn btn-danger" th:href="@{/orders/delete/{id}(id=${orders.orderId})}">Delete</a></td>
         </tr>
         </tbody>

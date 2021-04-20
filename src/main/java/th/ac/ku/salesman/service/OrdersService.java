@@ -33,6 +33,11 @@ public class OrdersService {
         String url = "http://localhost:8093/api/orders";
         restTemplate.postForObject(url, orders, Orders.class);
     }
+    public void editOrder(Orders orders) {
+        String url = "http://localhost:8093/api/orders/" +
+                orders.getOrderId();
+        restTemplate.put(url, orders);
+    }
 
     public void deleteOrder(Orders orders){
         String url = "http://localhost:8093/api/orders/" + orders.getOrderId();

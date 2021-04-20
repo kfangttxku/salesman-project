@@ -27,6 +27,21 @@ public class OrdersController {
         model.addAttribute("allOrders", ordersService.getOrders());
         return "redirect:orders";
     }
+    @GetMapping("/edit/{orderId}")
+    public String getEditOrdersPage(@PathVariable int orderId, Model model) {
+        Orders orders = ordersService.getOneOrder(orderId);
+        model.addAttribute("orders", orders);
+        return "orders-edit";
+    }
+    @PostMapping("/edit/{orderId}")
+    public String editorders(@PathVariable int orderId,
+                             @ModelAttribute Orders orders,
+                             Model model) {
+
+        ordersService.editOrder(orders);
+        model.addAttribute("products",ordersService.getOrders());
+        return "redirect:/orders";
+    }
 
     @GetMapping("/delete/{orderId}")
     public String getDeleteOrderPage(@PathVariable int orderId, Model model) {
