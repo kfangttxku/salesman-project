@@ -28,6 +28,21 @@ public class CustomerController {
         model.addAttribute("allCustomers", customerService.getCustomer());
         return "redirect:customer";
     }
+    @GetMapping("/edit/{customerId}")
+    public String getEditCustomerPage(@PathVariable int customerId, Model model) {
+        Customer customer = customerService.getOneCustomer(customerId);
+        model.addAttribute("customer", customer);
+        return "customer-edit";
+    }
+    @PostMapping("/edit/{customerId}")
+    public String editcustomer(@PathVariable int customerId,
+                             @ModelAttribute Customer customer,
+                             Model model) {
+
+        customerService.editCustomer(customer);
+        model.addAttribute("customer",customerService.getCustomer());
+        return "redirect:/customer";
+    }
 
     @GetMapping("/delete/{customerId}")
     public String getDeleteCustomerPage(@PathVariable int customerId, Model model) {

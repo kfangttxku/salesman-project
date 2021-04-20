@@ -32,6 +32,11 @@ public class CustomerService {
         String url = "http://localhost:8091/api/customer";
         restTemplate.postForObject(url, customer, Customer.class);
     }
+    public void editCustomer(Customer customer) {
+        String url = "http://localhost:8091/api/customer/" +
+                customer.getCustomerId();
+        restTemplate.put(url, customer);
+    }
 
     public void deleteCustomer(Customer customer){
         String url = "http://localhost:8091/api/customer/" + customer.getCustomerId();

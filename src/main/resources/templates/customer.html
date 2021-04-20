@@ -8,10 +8,6 @@
 <form th:action="@{/customer}" method="POST">
 
     <input type="hidden" name="customerId" value="-1"/>
-    <!--    <div class="form-group">-->
-<!--    <label for="inputId">Id</label>-->
-<!--        <input type="input" class = "form-control" name="customerId" id="inputId">-->
-<!--    </div>-->
 
     <div class="form-group">
     <label for="inputName">Name</label>
@@ -44,7 +40,8 @@
         <th style="text-align: center;">Name</th>
         <th style="text-align: center;">Address</th>
         <th style="text-align: center;">Phone</th>
-        <th style="text-align: center;">Action</th>
+        <th style="text-align: center;">Edit</th>
+        <th style="text-align: center;">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -53,6 +50,7 @@
         <td style="text-align: center;" th:text="${customer.customerName}"></td>
         <td style="text-align: center;" th:text="${customer.customerAddress}"></td>
         <td style="text-align: center;" th:text="${customer.customerPhone}"></td>
+        <td style="text-align: center;"><a class="btn btn-primary" th:href="@{/customer/edit/{id}(id=${customer.customerId})}">Edit</a></td>
         <td style="text-align: center;"><a class="btn btn-danger" th:href="@{/customer/delete/{id}(id=${customer.customerId})}">Delete</a></td>
     </tr>
     </tbody>
