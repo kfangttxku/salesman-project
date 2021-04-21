@@ -32,6 +32,7 @@ public class CustomerController {
     public String getEditCustomerPage(@PathVariable int customerId, Model model) {
         Customer customer = customerService.getOneCustomer(customerId);
         model.addAttribute("customer", customer);
+        model.addAttribute("customertitle","Edit "+ "Customer : " +customer.getCustomerName());
         return "customer-edit";
     }
     @PostMapping("/edit/{customerId}")
@@ -48,6 +49,7 @@ public class CustomerController {
     public String getDeleteCustomerPage(@PathVariable int customerId, Model model) {
         Customer customer = customerService.getOneCustomer(customerId);
         model.addAttribute("customer", customer);
+        model.addAttribute("customertitle","Delete "+ "Customer : " +customer.getCustomerName());
         return "customer-delete";
     }
 

@@ -4,7 +4,7 @@
       xmlns:th="https://www.thymeleaf.org">
 
 <div class="container" layout:fragment="content">
-    <h1>Edit Customer</h1>
+    <h1 th:text="${customertitle}"></h1>
     <form
             th:action="@{/customer/edit/{id}(id=${customer.customerId})}"
             th:object="${customer}"
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary">
+            <input type="submit" class="btn btn-primary" id="submitButton">
         </div>
 
     </form>

@@ -4,7 +4,7 @@
       xmlns:th="https://www.thymeleaf.org">
 
 <div class="container" layout:fragment="content">
-    <h1>Delete Customer</h1>
+    <h1 th:text="${customertitle}"></h1>
     <form th:action="@{/customer/delete/{customerId}(customerId=${customer.customerId})}"
           th:object="${customer}"
           method="POST">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-danger">
+            <input type="submit" class="btn btn-danger" id="submitButton">
         </div>
 
     </form>
