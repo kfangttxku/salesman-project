@@ -1,4 +1,5 @@
 # salesman-project
+### เป็นโปรเจ็คที่จัดการกับ order,ข้อมูลของลูกค้า และสินค้า
 # How to install
 ### 1.clone project https://github.com/kfangttxku/salesman-project.git และ api ทั้งหมด ได้แก่
 ### https://github.com/kfangttxku/customer-api.git , https://github.com/kfangttxku/order-api2.git , https://github.com/kfangttxku/product-api.git
@@ -34,6 +35,8 @@
 ### 2.run program ทั้งหมดที่ได้ git clone
 ### 3.เปิด browser แล้วค้นหา http://localhost:8090/home เพื่อเปิดหน้า project 
 ### 4.http://localhost:8091/api/customer , http://localhost:8092/api/product ,http://localhost:8093/api/orders (สามารถใช้ link ทั้ง 3 นี้เพื่อดู api ได้)
+# Link Slide
+### https://www.canva.com/design/DAEcIYaUsOA/9uNASJhHuaS2jh3fDm5bLg/view?utm_content=DAEcIYaUsOA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
 # รายชื่อสมาชิก
 #### ฐิติพงศ์ พูนวิทย์ 6110405965
 #### ณธกฤต ลลิตพุฒิโชค 6110405990
